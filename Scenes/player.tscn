@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c24qbg2ek0lt1"]
+[gd_scene load_steps=29 format=3 uid="uid://c24qbg2ek0lt1"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_euvym"]
 [ext_resource type="Texture2D" uid="uid://b3no38ayxcohg" path="res://Assets/mystic_woods_free_2.2/characters/player.png" id="1_okf71"]
@@ -75,6 +75,30 @@ region = Rect2(192, 48, 48, 48)
 atlas = ExtResource("1_okf71")
 region = Rect2(240, 48, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbpc0"]
+atlas = ExtResource("1_okf71")
+region = Rect2(0, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qihg"]
+atlas = ExtResource("1_okf71")
+region = Rect2(48, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuimn"]
+atlas = ExtResource("1_okf71")
+region = Rect2(96, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f6yj"]
+atlas = ExtResource("1_okf71")
+region = Rect2(144, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1k1g"]
+atlas = ExtResource("1_okf71")
+region = Rect2(192, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2mqs"]
+atlas = ExtResource("1_okf71")
+region = Rect2(240, 192, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_nsv52"]
 animations = [{
 "frames": [{
@@ -145,6 +169,29 @@ animations = [{
 "loop": true,
 "name": &"idleRightAndLeft",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbpc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qihg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuimn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f6yj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1k1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2mqs")
+}],
+"loop": true,
+"name": &"moveLeftAndRight",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_276rr"]
@@ -155,10 +202,9 @@ script = ExtResource("1_euvym")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nsv52")
-animation = &"idleBack"
+animation = &"moveLeftAndRight"
 autoplay = "idleFront"
-frame = 5
-frame_progress = 0.429568
+frame_progress = 0.790406
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 8)
