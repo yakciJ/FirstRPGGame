@@ -289,7 +289,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_276rr"]
-size = Vector2(17, 20)
+size = Vector2(9, 7)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_euvym")
@@ -300,5 +300,5 @@ animation = &"moveDown"
 autoplay = "idleFront"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 8)
+position = Vector2(0.5, 13.5)
 shape = SubResource("RectangleShape2D_276rr")
