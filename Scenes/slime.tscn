@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cwmt038qivvs3"]
+[gd_scene load_steps=35 format=3 uid="uid://cwmt038qivvs3"]
 
 [ext_resource type="Texture2D" uid="uid://cs816fw2e8mqw" path="res://Assets/mystic_woods_free_2.2/characters/slime.png" id="1_yh04p"]
 
@@ -245,18 +245,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0rb5"]
-size = Vector2(10, 8)
+[sub_resource type="CircleShape2D" id="CircleShape2D_8l1yb"]
+radius = 4.45
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6v7et"]
+radius = 76.0
 
 [node name="Slime" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_whnvc")
 animation = &"idleFront"
 autoplay = "idleFront"
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, 2)
+[node name="SlimeBody" type="Area2D" parent="."]
+position = Vector2(0, -3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_l0rb5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlimeBody"]
+shape = SubResource("CircleShape2D_8l1yb")
+
+[node name="AreaOfSight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfSight"]
+shape = SubResource("CircleShape2D_6v7et")
