@@ -295,10 +295,11 @@ size = Vector2(9, 7)
 script = ExtResource("1_euvym")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_nsv52")
 animation = &"moveDown"
 autoplay = "idleFront"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 13.5)
+position = Vector2(0.5, -1.5)
 shape = SubResource("RectangleShape2D_276rr")

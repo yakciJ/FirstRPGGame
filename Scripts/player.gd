@@ -3,6 +3,8 @@ extends CharacterBody2D
 const SPEED = 80.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
 var directionIdle = "left"
+var oldPosition = position
+var idle = false
 
 func _physics_process(delta):
 
@@ -10,7 +12,6 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * SPEED
-	
 	if direction.x == 0 and direction.y == 0:
 		match directionIdle:
 			"leftRight":
@@ -35,5 +36,5 @@ func _physics_process(delta):
 		elif direction.y < 0:
 			animated_sprite_2d.play("moveUp")
 			directionIdle = "up"
-			
 	move_and_slide()
+
