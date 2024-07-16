@@ -127,4 +127,4 @@ limit_right = 370
 limit_bottom = 192
 
 [node name="slime" parent="." instance=ExtResource("3_seghr")]
-position = Vector2(0, 3)
+position = Vector2(0, -1)
