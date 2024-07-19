@@ -310,21 +310,23 @@ radius = 76.0
 size = Vector2(27, 8)
 
 [node name="slime" type="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(0, -3)
 script = ExtResource("1_8fwiw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -5)
+y_sort_enabled = true
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_nm8o0")
 animation = &"idleFront"
 autoplay = "idleFront"
+offset = Vector2(0, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_cysil")
 
 [node name="AreaOfSight" type="Area2D" parent="."]
-visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfSight"]
@@ -335,6 +337,7 @@ visible = false
 position = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfAttack"]
+visible = false
 position = Vector2(13, -1)
 shape = SubResource("RectangleShape2D_ipy07")
 

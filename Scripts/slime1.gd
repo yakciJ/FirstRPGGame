@@ -18,7 +18,7 @@ func _physics_process(delta):
 		animated_sprite_2d.play("idleFront")
 		return
 	else:
-		velocity = position.direction_to(defaultPosition) * SPEED
+		velocity = position.direction_to(defaultPosition) * SPEED * delta
 		move_and_slide()
 	if velocity != Vector2(0,0):
 		if abs(velocity.x) > abs(velocity.y):

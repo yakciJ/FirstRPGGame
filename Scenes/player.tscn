@@ -289,18 +289,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_276rr"]
-size = Vector2(9, 7)
+size = Vector2(8, 7)
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 3
 script = ExtResource("1_euvym")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -15)
+y_sort_enabled = true
+position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_nsv52")
 animation = &"moveDown"
 autoplay = "idleFront"
+offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -1.5)
+position = Vector2(1, -4)
 shape = SubResource("RectangleShape2D_276rr")
