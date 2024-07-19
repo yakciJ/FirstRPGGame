@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
-
+var animChange = false
 const SPEED = 20.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var player = null
@@ -11,8 +11,6 @@ func _ready():
 	defaultPosition = position
 
 func _physics_process(delta):
-	print(defaultPosition)
-	print(position)
 	if player:
 		velocity = position.direction_to(player.position) * SPEED
 		move_and_slide()
@@ -27,17 +25,25 @@ func _physics_process(delta):
 			if velocity.x > 0:
 				animated_sprite_2d.flip_h = false
 			else: animated_sprite_2d.flip_h = true
-			animated_sprite_2d.play("moveLeftAndRight")
+			if animChange:
+				animated_sprite_2d.play("moveLeftAndRight")
+				animChange = false
 		elif velocity.y > 0: 
-			animated_sprite_2d.play("moveUp")
+			if animChange:
+				animated_sprite_2d.play("moveFront")
+				animChange = false
 		elif velocity.y < 0:
-			animated_sprite_2d.play("moveDown")
-			
+			if animChange:
+				animated_sprite_2d.play("moveBack")
+				animChange = false
+
+		
 func _on_area_of_sight_body_entered(body):
 	player = body
-	pass # Replace with function body.
-
 
 func _on_area_of_sight_body_exited(body):
 	player = null
-	pass # Replace with function body.
+
+func _on_animated_sprite_2d_animation_finished():
+	animChange = true
+
